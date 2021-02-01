@@ -45,7 +45,7 @@
                                     <action selector="slidersValueDidChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="4tP-i2-TWP"/>
                                 </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.29999999999999999" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="CZ7-Mb-YNO">
+                            <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.29999999999999999" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="CZ7-Mb-YNO">
                                 <rect key="frame" x="176" y="467.5" width="224" height="31"/>
                                 <color key="minimumTrackTintColor" systemColor="systemGreenColor"/>
                                 <connections>
