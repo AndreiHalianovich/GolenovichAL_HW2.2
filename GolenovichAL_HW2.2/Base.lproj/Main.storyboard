@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="51R-oo-wki">
-                                <rect key="frame" x="16" y="60" width="382" height="317.33333333333331"/>
+                                <rect key="frame" x="16" y="60" width="382" height="317.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOQ-Xo-b57">
@@ -39,21 +39,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="WnW-M5-QqD">
-                                <rect key="frame" x="176" y="417.33333333333331" width="224" height="31"/>
+                                <rect key="frame" x="176" y="417.5" width="224" height="31"/>
                                 <color key="minimumTrackTintColor" systemColor="systemRedColor"/>
                                 <connections>
                                     <action selector="slidersValueDidChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="4tP-i2-TWP"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.29999999999999999" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="CZ7-Mb-YNO">
-                                <rect key="frame" x="176" y="467.33333333333331" width="224" height="31"/>
+                                <rect key="frame" x="176" y="467.5" width="224" height="31"/>
                                 <color key="minimumTrackTintColor" systemColor="systemGreenColor"/>
                                 <connections>
                                     <action selector="slidersValueDidChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="7cs-Nm-oCO"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="YLt-hu-OQV">
-                                <rect key="frame" x="176" y="517.33333333333337" width="224" height="31"/>
+                                <rect key="frame" x="176" y="517.5" width="224" height="31"/>
                                 <color key="minimumTrackTintColor" systemColor="systemBlueColor"/>
                                 <connections>
                                     <action selector="slidersValueDidChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Kgc-m0-Fov"/>
@@ -66,7 +66,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnX-aa-Tdu">
-                                <rect key="frame" x="128" y="472" width="35" height="20.666666666666686"/>
+                                <rect key="frame" x="128" y="472" width="35" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -86,6 +86,8 @@
                             <constraint firstItem="bPD-og-YNv" firstAttribute="centerY" secondItem="WnW-M5-QqD" secondAttribute="centerY" id="DYm-Sl-dxD"/>
                             <constraint firstItem="dnX-aa-Tdu" firstAttribute="centerY" secondItem="CZ7-Mb-YNO" secondAttribute="centerY" id="DqY-zv-SEm"/>
                             <constraint firstItem="51R-oo-wki" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.354167" id="KGy-wY-QIm"/>
+                            <constraint firstItem="dnX-aa-Tdu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="R2k-Wg-btZ" secondAttribute="trailing" constant="17" id="Qnf-g0-D6t"/>
+                            <constraint firstItem="bPD-og-YNv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zOQ-Xo-b57" secondAttribute="trailing" constant="33" id="RkM-nk-QEz"/>
                             <constraint firstItem="R2k-Wg-btZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="S07-dw-9qm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="51R-oo-wki" secondAttribute="trailing" constant="16" id="U9z-dC-oSe"/>
                             <constraint firstItem="zOQ-Xo-b57" firstAttribute="centerY" secondItem="bPD-og-YNv" secondAttribute="centerY" id="UKO-56-S11"/>
@@ -104,6 +106,7 @@
                             <constraint firstItem="so4-d3-beR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="j0H-BG-dCy"/>
                             <constraint firstItem="YLt-hu-OQV" firstAttribute="leading" secondItem="jco-bJ-bTH" secondAttribute="trailing" constant="15" id="kez-og-5L2"/>
                             <constraint firstItem="jco-bJ-bTH" firstAttribute="centerY" secondItem="YLt-hu-OQV" secondAttribute="centerY" id="r24-iz-0Ut"/>
+                            <constraint firstItem="jco-bJ-bTH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="so4-d3-beR" secondAttribute="trailing" constant="30" id="wxP-2L-iIk"/>
                             <constraint firstItem="R2k-Wg-btZ" firstAttribute="centerY" secondItem="dnX-aa-Tdu" secondAttribute="centerY" id="xJt-Ex-F04"/>
                             <constraint firstItem="so4-d3-beR" firstAttribute="centerY" secondItem="jco-bJ-bTH" secondAttribute="centerY" id="ymF-vZ-ozi"/>
                         </constraints>

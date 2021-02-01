@@ -25,14 +25,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         coloredView.layer.cornerRadius = coloredView.frame.height / 10
+        coloredView.backgroundColor = UIColor(displayP3Red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1.0)
     }
     
     @IBAction func slidersValueDidChanged(_ sender: UISlider) {
-        let red = redSlider.value
-        let green = greenSlider.value
-        let blue = blueSlider.value
+        let red = CGFloat(redSlider.value)
+        let green = CGFloat(greenSlider.value)
+        let blue = CGFloat(blueSlider.value)
         
-        let color = UIColor(displayP3Red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: 1.0)
+        let color = UIColor(displayP3Red: red, green: green, blue: blue, alpha: 1.0)
         coloredView.backgroundColor = color
         
         redColorLabel.text = String(format: "%.02f", red)
