@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		A82CD1BF25C58CF90084822B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82CD1BE25C58CF90084822B /* AppDelegate.swift */; };
 		A82CD1C125C58CF90084822B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82CD1C025C58CF90084822B /* SceneDelegate.swift */; };
-		A82CD1C325C58CF90084822B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82CD1C225C58CF90084822B /* ViewController.swift */; };
+		A82CD1C325C58CF90084822B /* CustomizationColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82CD1C225C58CF90084822B /* CustomizationColorViewController.swift */; };
 		A82CD1C625C58CF90084822B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A82CD1C425C58CF90084822B /* Main.storyboard */; };
 		A82CD1C825C58CFB0084822B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A82CD1C725C58CFB0084822B /* Assets.xcassets */; };
 		A82CD1CB25C58CFB0084822B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A82CD1C925C58CFB0084822B /* LaunchScreen.storyboard */; };
+		A82CD22C25D93D1D0084822B /* ColoredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82CD22B25D93D1D0084822B /* ColoredViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A82CD1BB25C58CF90084822B /* GolenovichAL_HW2.2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolenovichAL_HW2.2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82CD1BE25C58CF90084822B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A82CD1C025C58CF90084822B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A82CD1C225C58CF90084822B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A82CD1C225C58CF90084822B /* CustomizationColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationColorViewController.swift; sourceTree = "<group>"; };
 		A82CD1C525C58CF90084822B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A82CD1C725C58CFB0084822B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A82CD1CA25C58CFB0084822B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A82CD1CC25C58CFB0084822B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A82CD22B25D93D1D0084822B /* ColoredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColoredViewController.swift; path = GolenovichAL_HW2.2/ViewControllers/ColoredViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,48 @@
 		A82CD1BD25C58CF90084822B /* GolenovichAL_HW2.2 */ = {
 			isa = PBXGroup;
 			children = (
-				A82CD1BE25C58CF90084822B /* AppDelegate.swift */,
-				A82CD1C025C58CF90084822B /* SceneDelegate.swift */,
-				A82CD1C225C58CF90084822B /* ViewController.swift */,
-				A82CD1C425C58CF90084822B /* Main.storyboard */,
-				A82CD1C725C58CFB0084822B /* Assets.xcassets */,
-				A82CD1C925C58CFB0084822B /* LaunchScreen.storyboard */,
-				A82CD1CC25C58CFB0084822B /* Info.plist */,
+				A82CD22625D93C470084822B /* ViewControllers */,
+				A82CD22725D93C590084822B /* Storyboards */,
+				A82CD22825D93CA90084822B /* SupportingFiles */,
+				A82CD22A25D93CB60084822B /* Resources */,
 			);
 			path = GolenovichAL_HW2.2;
+			sourceTree = "<group>";
+		};
+		A82CD22625D93C470084822B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A82CD22B25D93D1D0084822B /* ColoredViewController.swift */,
+				A82CD1C225C58CF90084822B /* CustomizationColorViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A82CD22725D93C590084822B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A82CD1C425C58CF90084822B /* Main.storyboard */,
+				A82CD1C925C58CFB0084822B /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A82CD22825D93CA90084822B /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				A82CD1BE25C58CF90084822B /* AppDelegate.swift */,
+				A82CD1C025C58CF90084822B /* SceneDelegate.swift */,
+				A82CD1CC25C58CFB0084822B /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		A82CD22A25D93CB60084822B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A82CD1C725C58CFB0084822B /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +172,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A82CD1C325C58CF90084822B /* ViewController.swift in Sources */,
+				A82CD1C325C58CF90084822B /* CustomizationColorViewController.swift in Sources */,
+				A82CD22C25D93D1D0084822B /* ColoredViewController.swift in Sources */,
 				A82CD1BF25C58CF90084822B /* AppDelegate.swift in Sources */,
 				A82CD1C125C58CF90084822B /* SceneDelegate.swift in Sources */,
 			);
@@ -287,7 +323,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GolenovichAL_HW2.2/Info.plist;
+				INFOPLIST_FILE = GolenovichAL_HW2.2/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,7 +341,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GolenovichAL_HW2.2/Info.plist;
+				INFOPLIST_FILE = GolenovichAL_HW2.2/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
