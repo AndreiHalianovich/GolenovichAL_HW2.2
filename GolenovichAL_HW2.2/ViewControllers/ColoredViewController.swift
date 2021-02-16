@@ -13,19 +13,10 @@ protocol CustomizationColorViewControllerDelegate {
 
 class ColoredViewController: UIViewController {
     
-    override func viewDidLoad() {
-        
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let customizationColorVC = segue.destination as? CustomizationColorViewController else { return }
-        customizationColorVC.color = view.backgroundColor
         customizationColorVC.delegate = self
-    }
-    
-    
-    @IBAction func setColorBarButtonDidClick(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "setColor", sender: nil)
+        customizationColorVC.color = view.backgroundColor
     }
 }
 

@@ -23,61 +23,150 @@ class CustomizationColorViewController: UIViewController {
     @IBOutlet var greenColorTextField: UITextField!
     @IBOutlet var blueColorTextField: UITextField!
     
+    // MARK: - Public properties
     var color: UIColor!
     var delegate: CustomizationColorViewControllerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         coloredView.layer.cornerRadius = coloredView.frame.height / 10
         
-        setValuesForSliders()
+        coloredView.backgroundColor = color
         
-        redColorLabel.text = String(format: "%.02f", redSlider.value)
-        greenColorLabel.text = String(format: "%.02f", greenSlider.value)
-        blueColorLabel.text = String(format: "%.02f", blueSlider.value)
+        setValuesForSliders()
+        setValue(for: redColorLabel, greenColorLabel, blueColorLabel)
+        setValue(for: redColorTextField, greenColorTextField, blueColorTextField)
+        addDoneButton(to: redColorTextField, greenColorTextField, blueColorTextField)
     }
     
     @IBAction func slidersValueDidChanged(_ sender: UISlider) {
-        setColorForView()
         
-        redColorLabel.text = String(format: "%.02f", redSlider.value)
-        greenColorLabel.text = String(format: "%.02f", greenSlider.value)
-        blueColorLabel.text = String(format: "%.02f", blueSlider.value)
+        switch sender.tag {
+        case 0:
+            setValue(for: redColorLabel)
+            setValue(for: redColorTextField)
+        case 1:
+            setValue(for: greenColorLabel)
+            setValue(for: greenColorTextField)
+        case 2:
+            setValue(for: blueColorLabel)
+            setValue(for: blueColorTextField)
+        default:
+            break
+        }
+        setColorForView()
     }
     
     @IBAction func doneButtonDidClick() {
-        guard let color = coloredView.backgroundColor else { return }
-        delegate.setNewValue(for: color)
+        delegate.setNewValue(for: coloredView.backgroundColor ?? .white)
         dismiss(animated: true)
     }
 }
 
 // MARK: - Setting color colored view and values for sliders
 extension CustomizationColorViewController {
+    
     private func setColorForView() {
-        coloredView.backgroundColor = UIColor(displayP3Red: CGFloat(redSlider.value),
+        coloredView.backgroundColor = UIColor(red: CGFloat(redSlider.value),
                                               green: CGFloat(greenSlider.value),
                                               blue: CGFloat(blueSlider.value),
                                               alpha: 1.0)
     }
     
+    private func setValue(for labels: UILabel...) {
+        labels.forEach { label in
+            switch label.tag {
+            case 0: redColorLabel.text = String(format: "%.02f", redSlider.value)
+            case 1: greenColorLabel.text = String(format: "%.02f", greenSlider.value)
+            case 2: blueColorLabel.text = String(format: "%.02f", blueSlider.value)
+            default: break
+            }
+        }
+    }
+    
+    private func setValue(for textFields: UITextField...) {
+        textFields.forEach { textField in
+            switch textField.tag {
+            case 0: redColorTextField.text = String(format: "%.02f", redSlider.value)
+            case 1: greenColorTextField.text = String(format: "%.02f", greenSlider.value)
+            case 2: blueColorTextField.text = String(format: "%.02f", blueSlider.value)
+            default: break
+            }
+        }
+    }
+    
     private func setValuesForSliders() {
-        redSlider.value = Float(color.components.red)
-        greenSlider.value = Float(color.components.green)
-        blueSlider.value = Float(color.components.blue)
+        let ciColor = CIColor(color: color)
+        redSlider.value = Float(ciColor.red)
+        greenSlider.value = Float(ciColor.green)
+        blueSlider.value = Float(ciColor.blue)
         setColorForView()
+    }
+    
+    private func addDoneButton(to textFields: UITextField...) {
+        
+        textFields.forEach { textField in
+            let keyboardToolBar = UIToolbar()
+            textField.inputAccessoryView = keyboardToolBar
+            keyboardToolBar.sizeToFit()
+            
+            let doneButton = UIBarButtonItem(
+                title: "Done",
+                style: .done,
+                target: self,
+                action: #selector(didTapDone)
+            )
+            
+            let flexBarButton = UIBarButtonItem(
+                barButtonSystemItem: .flexibleSpace,
+                target: nil,
+                action: nil
+            )
+            
+            keyboardToolBar.items = [flexBarButton, doneButton]
+        }
+    }
+    
+    @objc private func didTapDone() {
+        view.endEditing(true)
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }
 
-// MARK: - UIColor to CGFloat values
-extension UIColor {
-    var coreImageColor: CIColor {
-        return CIColor(color: self)
+//MARK: - UITextFieldDelegate
+extension CustomizationColorViewController: UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
-    var components: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
-        let coreImageColor = self.coreImageColor
-        return (coreImageColor.red, coreImageColor.green, coreImageColor.blue, coreImageColor.alpha)
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        
+        if let currentValue = Float(text) {
+            switch textField.tag {
+            case 0:
+                redSlider.setValue(currentValue, animated: true)
+                setValue(for: redColorLabel)
+            case 1:
+                greenSlider.setValue(currentValue, animated: true)
+                setValue(for: greenColorLabel)
+            case 2:
+                blueSlider.setValue(currentValue, animated: true)
+                setValue(for: blueColorLabel)
+            default: break
+            }
+            setColorForView()
+            return
+        }
+        showAlert(title: "Wrong format!", message: "Please, enter correct value")
     }
 }
 
